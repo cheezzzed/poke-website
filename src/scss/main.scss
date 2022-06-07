@@ -24,6 +24,8 @@ background: variables.$primary-color;
 */
 
 @use 'reset';
+@use 'variables';
+@use 'mixins';
 
 /* 1. Main Layout ================================= */
 
@@ -32,86 +34,525 @@ background: variables.$primary-color;
 }
 
 body {
-	background: rgb(46, 48, 50);
-}
+	font-family: 'Noto Sans', sans-serif;
+	background-color: variables.$yellow;
+	font-size: 1.5rem;
 
-/* 2. Content ================================= */
-
-.floating-box {
-	position: relative;
-	font-family: sans-serif;
-	width: 90%;
-	max-width: 500px;
-	margin: 140px auto;
-	padding: 30px 20px 30px 30px;
-
-	.foreground {
+	.header{
 		position: relative;
-		z-index: 2;
-		transform: translateZ(100px);
-	}
-
-	.background {
-		position: absolute;
+		display: flex;
+		justify-content: space-between;
 		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background: white;
-		z-index: 1;
-		// perspective: 2000px;
-		transition: 0.2s;
-		transform: translateX(20px) perspective(600px) rotateY(15deg);
-	}
+		transition: 300ms;
 
-	&:hover .background {
-		transform: translateX(-30px) perspective(600px) rotateY(-15deg);
-	}
+		.header-logo{
+			position: absolute;
+			width: 5rem;
+			top: 1.8rem;
+			left: 40%;
 
-	.logo {
-		position: absolute;
-		top: -30px;
-		width: 60px;
-		z-index: 2;
-		transform: translateZ(100px);
-		transition: 0.3s;
-
-		&:hover {
-			transform: rotate(-0.4turn);
+			@include mixins.bp-large{
+				position: fixed;
+				top: 1rem;
+				left: 2.2rem;
+				z-index: 10;
+			}
 		}
-	}
 
-	h1 {
-		font-weight: 700;
-		font-size: 22pt;
-		margin: 15px 0;
-	}
+		.header-nav{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 
-	p {
-		color: #777;
-		// margin: 10px 0;
-		line-height: 140%;
-	}
+			input{
+				display: none;
+			}
 
-	p.github {
-		font-size: 0.8em;
+			.list{
+				display: flex;
+				display: none;
+				justify-content: center;
+				align-items: center;
+				z-index: 1;
+				transition: 300ms;
 
-		a {
-			opacity: 0.2;
-			transition: 0.3s;
+				@include mixins.bp-large{
+					justify-content: start;
+					flex-direction: column;
+					align-items: center;
+					position: fixed;
+					top: 0;
+					right: -18.75rem;
+					height: 100vh;
+					width: 18.75rem;
+					padding-top: 4.1rem;
+				}
 
-			&:hover {
-				opacity: 1;
-				color: red;
+				li{
+					font-family: 'Noto Sans', sans-serif;
+					font-size: 1rem;
+					margin: 0.3rem 3rem 1.25rem 3rem;
+					text-transform: uppercase;
+				}
+
+				a{
+					text-decoration: none;
+					color: variables.$white;
+				}
+
+				a:hover{
+					color: variables.$green
+				}
+			}
+		}
+
+		.header-button{
+			position: absolute;
+			font-family: 'Noto Sans', sans-serif;
+			text-transform: uppercase;
+			color: variables.$white;
+			background-color: variables.$green;
+			border: none;
+			padding: 1rem 1.8rem;
+
+			@include mixins.bp-large{
+				position: fixed;
+				right: 2.2rem;
 			}
 		}
 	}
 
-	code {
+	.hero{
+		display: flex;
+		flex-direction: column;
+		background-image: url(/src/img/header_img.webp);
+		background-size: cover;
+		background-position: center;
+		height: 100vh;
+		z-index: 1;
+
+		@include mixins.bp-large{
+			height: 100vh;		
+		}
+
+		h1{
+			font-family: 'Pacifico', cursive;
+			font-size: 2.7rem;
+			justify-self: center;
+			align-self: center;
+			color: variables.$white;
+			margin-top: 13.75rem;
+			transform: skew(-13deg, -13deg);
+
+			@include mixins.bp-large{
+				font-size: 11rem;
+				margin-top: 17rem;
+				margin-bottom: 1.3rem;	
+			}
+		}
+
+		h2{
+			font-family: 'Noto Sans', sans-serif;
+			font-size: 1.3rem;
+			font-weight: 700;
+			justify-self: center;
+			align-self: center;
+			text-align: center;
+			text-transform: uppercase;
+			line-height: 1.5rem;
+			color: variables.$white;
+			margin: 1.3rem 5.6rem;
+
+			@include mixins.bp-large{
+				font-size: 1.7rem;
+				margin-top: 1.8rem;	
+			}
+		}
+
+		h3{
+			font-family: 'Noto Sans', sans-serif;
+			font-size: 1rem;
+			font-weight: 400;
+			justify-self: center;
+			align-self: center;
+			color: variables.$white;
+
+			@include mixins.bp-large{
+				font-size: 1.3rem;	
+			}
+		}
+
+		.socials{
+			display: none;
+
+			img{
+				width: 1.8rem;
+			}
+
+			@include mixins.bp-large{
+				display: block;
+				width: 1.8rem;
+				position: fixed;
+				top: 33%;
+				right: 2.2rem;
+				z-index: 10;
+			}
+		}
+	}
+
+	.story{
+		position: relative;
+		background-color: variables.$yellow;
+		height: 33rem;
+
+		@include mixins.bp-large{
+			height: 40rem;		
+		}
+
+		.story-copy{
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			background-color: variables.$white;
+			width: 18.75rem;
+			top: 3.5rem;
+			bottom: 0.625;
+			right: 4rem;
+			z-index: 2;
+
+			@include mixins.bp-large{
+				width: 40rem;
+				top: 20%;
+				bottom: 20%;
+				right: 30%;	
+			}
+		}
+
+		h4{
+			font-family: 'Pacifico', cursive;
+			font-size: 2rem;
+			color: variables.$green;
+			margin: 1.8rem 3.125rem;
+			padding-top: 2rem;
+			transform: skew(-13deg, -13deg);
+		}
+
+		.story-content{
+			height: 18.75rem;
+			margin-top: 2.5rem;
+
+			@include mixins.bp-large{
+				display: flex;
+				align-items: center;	
+			}
+
+			p{
+				font-family: 'Noto Sans', sans-serif;
+				font-size: 1rem;
+				text-align: center;
+				line-height: 2rem;
+				color: variables.$green;
+				margin: 0.625rem 2.2rem 1.8rem 2.2rem;
+
+				@include mixins.bp-large{
+					width: 50%;
+					font-size: 1rem;
+					text-align: left;
+					line-height: 1.8rem;
+					border-right: 2px solid variables.$green;
+					margin: 0rem 0rem 0rem 0rem;
+					margin-bottom: 6rem;
+					margin-right: 3.125rem;
+					padding: 3.125rem;
+				}
+			}
+
+			.menu-button{
+				background-color: variables.$white;
+				border: 1px solid variables.$green;
+				color: variables.$green;
+				padding: 0.625rem 2.5rem;
+				transition: 500ms ease-in-out;
+
+				@include mixins.bp-large{
+					margin: 4rem;
+					margin-top: -2rem;
+				}
+			}
+
+			.menu-button:hover{
+				background-color: variables.$green;
+				color: variables.$white;
+			}
+		}
+	}
+
+	.story-behind-content{
 		position: absolute;
-		top: 20px;
-		right: 20px;
-		font-size: 0.8em;
-		opacity: 0.2;
+		height: 27rem;
+		width: 18.75rem;
+		border: 10px solid variables.$white;
+		z-index: 1;
+		top: 0.625rem;
+		left: 2rem;
+
+		@include mixins.bp-large{
+			width: 23rem;
+			top: 6.5rem;
+			left: 15rem;			
+		}
+	}
+
+	.gallery{
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+		background-color: variables.$white;
+
+		img{
+			width: 100%;
+
+			@include mixins.bp-large{
+				width: 100%;		
+			}
+		}
+	}
+
+	.catering{
+		position: relative;
+		background-image: url(/src/img/catering_img.webp);
+		background-attachment: fixed;
+		background-position: center;
+		background-size: cover;
+		height: 40rem;
+
+		@include mixins.bp-medium{
+			display: grid;
+			grid-template-columns: 30% 40% 30%;
+			grid-template-rows: 3.125rem 6.25rem 50% 6.25rem 3.125rem;
+		}
+		
+		@include mixins.bp-large{
+			display: grid;
+			grid-template-columns: 30% 40% 30%;
+			grid-template-rows: 3.125rem 6.25rem 50% 6.25rem 3.125rem;
+		}
+
+		.catering-content{
+			position: absolute;
+			background-color: variables.$white;
+			text-align: center;
+			bottom: -3.7rem;
+			margin: 5.3rem;
+
+			@include mixins.bp-large{
+				bottom: 1rem;
+			}
+
+			h1{
+				font-family: 'Pacifico', cursive;
+				font-size: 2rem;
+				color: variables.$green;
+				margin: 2.5rem 3.125rem;
+				padding-top: 3rem;
+				transform: skew(-13deg, -13deg);
+			}
+
+			p{
+				font-family: 'Nato Sans', sans-serif;
+				font-size: 2rem;
+				text-align: center;
+				line-height: 2.5rem;
+				color: variables.$green;
+				margin: 0.625rem 2.5rem 1.8rem 2.5rem;
+
+				@include mixins.bp-large{
+					font-size: 2.5rem;
+					line-height: 3rem;
+					margin: 3.125rem 6.25rem 1.8rem 6.25rem;
+				}
+			}
+
+			.learn-more{
+				background-color: variables.$white;
+				border: 1px solid variables.$green;
+				color: variables.$green;
+				padding: 0.625rem 2.5rem;
+				margin-bottom: 2.5rem;
+				margin-top: 4.1rem;
+				transition: 500ms ease-in-out;
+
+				@include mixins.bp-medium{
+					font-size: 1.3rem;
+					margin-top: 1.3rem;
+				}
+
+				@include mixins.bp-large{
+					font-size: 1.3rem;
+					margin-top: 1.3rem;
+				}
+			}
+
+			.learn-more:hover{
+				background-color: variables.$green;
+				color: variables.$white;
+			}
+		}
+	}
+
+	footer{
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		background-color: variables.$white;
+
+		@include mixins.bp-large{
+			background-color: variables.$pink;		
+			display: grid;
+			grid-template-columns: 10% 80% 10%;
+			grid-template-rows: 3.125rem 6.25rem 50% 6.25rem 3.125rem;
+		}
+
+		.footer-content{
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			background-color: variables.$white;
+
+			@include mixins.bp-large{
+				grid-column: 2 / 3;
+				grid-row: 3 / 4;
+				background-color: variables.$white;		
+			}
+
+			.footer-img{
+				width: 6.25rem;
+				margin-top: 1.3rem;
+				margin-right: 1.5rem;
+				align-self: flex-end;
+				transform: rotate(-90deg);
+
+				@include mixins.bp-large{
+					position: absolute;
+					width: 9rem;
+					margin-top: 2.5rem;
+					margin-right: 0;
+					right: 14.4rem;
+				}
+			}
+
+			h3{
+				font-family: 'Pacifico', cursive;
+				font-size: 1.5rem;
+				color: variables.$green;
+				margin: 2.5rem 3.125rem;
+				transform: skew(-13deg, -13deg);
+
+				@include mixins.bp-large{
+					margin-bottom: 0.625rem;	
+				}
+			}
+
+			p{
+				font-family: 'Noto Sans', sans-serif;
+				font-size: 1.5rem;
+				text-align: center;
+				line-height: 2rem;
+				color: variables.$green;
+				margin: 2.5rem 3.75rem 3.75rem 2.5rem;
+
+				@include mixins.bp-large{
+					margin-top: 1.3rem;
+				}
+			}
+
+			.footer-content-copy{
+
+				@include mixins.bp-large{
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;	
+				}
+
+				.hours{
+					order: 3;
+					margin: 0rem 8.75rem 6.25rem 8.75rem;
+
+					@include mixins.bp-large{
+						order: 1;
+						margin: 0rem 0rem 0rem 4.4rem;
+						text-align: left;
+					}
+
+					li{
+						font-family: 'Noto Sans', sans-serif;
+						font-size: 1.5rem;
+						text-align: center;
+						line-height: 2rem;
+						color: variables.$green;
+
+						@include mixins.bp-large{
+							text-align: left;
+						}
+					}
+				}
+
+				.address{
+					order: 1;
+					margin: 0rem 6.875rem 4.375rem 6.875rem;
+					
+					@include mixins.bp-large{
+						order: 1;
+						text-align: center;
+						margin: 0rem 0rem 4.4rem 0rem;
+						padding-left: 6.25rem;
+						padding-right: 6.25rem;
+					}
+				}
+
+				.contact{
+					order: 4;
+					margin-bottom: 3.125rem;
+
+					@include mixins.bp-large{
+						order: 1;
+						text-align: left;
+						margin: 0rem 4.4rem 0rem 0rem;
+					}
+
+					li{
+						font-family: 'Noto Sans', sans-serif;
+						font-size: 1rem;
+						text-align: center;
+						line-height: 2rem;
+						color: variables.$green;
+
+						@include mixins.bp-large{
+							text-align: right;
+						}
+					}
+				}
+			}
+		}
+
+		.copyright{
+			font-family: 'Noto Sans', sans-serif;
+			font-size: 1rem;
+			text-align: center;
+			text-decoration: none;
+			color: variables.$green;
+			padding-bottom: 3.125rem;
+			margin-top: 3.125rem;
+
+			@include mixins.bp-large{
+				margin-bottom: 3.75rem;
+				grid-column: 2 / 3;
+				grid-row: 4 / 5;		
+			}
+		}
 	}
 }
+
+
+

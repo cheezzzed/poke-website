@@ -6,7 +6,12 @@
 		<title>¯\_(ツ)_/¯</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/main.css" />
 
 		<!--
@@ -46,22 +51,94 @@
 	</head>
 
 	<body>
-		<div class="floating-box">
-			<img class="logo" src="dist/img/logo.png" alt="Circus Logo" />
-			<div class="foreground">
-				<h1>Hello World!</h1>
-				<p>Yep, you've got the Circus Starter project working.</p>
-				<p>Congratulations! You're ready to code.</p>
-				<p class="github">
-					<a target="_blank" rel="noopener" href="https://github.com/CreativeCircus/circus-starter"
-						>https://github.com/CreativeCircus/circus-starter</a
-					>
-				</p>
-				<code>1.10.0</code>
+		<header class="header">
+			<img src="/src/img/logo.png" alt="logo" class="header-logo">
+			<nav class="header-nav">
+				<input type="checkbox" class="menu">
+				<div class="hamburger"></div>
+				<ul class="list">
+					<li><a href="">Home</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Menu</a></li>
+					<li><a href="">Catering</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+			</nav>
+			<button class="header-button">Order Online</button>
+		</header>
+	
+		<div class="hero">
+			<h1 class="title">'O ia Pok&eacute;</h1>
+			<h2>Quality Products. Hawaiian Flavours.</h2>
+			<h3>Open Daily for Takeout &amp; Delivery</h3>
+	
+			<div class="socials">
+				<a href=""><img src="/src/img/foursquare.png" alt="foursquare"></a>
+				<a href=""><img src="/src/img/yelp.png" alt="yelp"></a>
+				<a href=""><img src="/src/img/tripadvisor.png" alt="trip advisor"></a>
+				<a href=""><img src="/src/img/twitter.png" alt="twitter"></a>
+				<a href=""><img src="/src/img/instagram.png" alt="instagram"></a>
 			</div>
-			<div class="background"></div>
 		</div>
-
+	
+		<div class="story">
+			<section class="story-copy">
+				<h4>Our Pok&eacute;</h4>
+				<div class="story-content">
+					<p>I'm a paragraph. Click here to add your own text
+					and edit me. It's eay. Just click "Edit Text"
+					or double click me to add your own content and
+					make changes to the font.</p>
+					<button class="menu-button">See Menu</button>
+				</div>
+			</section>
+			<img src="/src/img/main_img.webp" alt="bird's eye view" class="story-behind-content">
+		</div>
+	
+		<div class="gallery">
+			<img src="/src/img/gallery__item1.webp" alt="group">
+			<img src="/src/img/gallery__item2.webp" alt="rice">
+			<img src="/src/img/gallery__item3.webp" alt="coffee">
+			<img src="/src/img/gallery__item4.webp" alt="man with chopsticks">
+			<img src="/src/img/gallery__item5.webp" alt="tuna">
+			<img src="/src/img/gallery__item6.webp" alt="tiki girl">
+			<img src="/src/img/gallery__item7.webp" alt="bag">
+			<img src="/src/img/gallery__item8.webp" alt="pokebowl">
+		</div>
+	
+		<div class="catering">
+			<section class="catering-content">
+				<h1>Our Catering</h1>
+				<p>I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.</p>
+				<button class="learn-more">Find Out More</button>
+			</section>
+		</div>
+	
+		<footer>
+			<section class="footer-content">
+				<img src="/src/img/footer_img.webp" alt="footer img" class="footer-img">
+				<h3>Hungry?</h3>
+				<p>I'm a paragraph. Click here to add your own text and edit me.</p>
+	
+				<div class="footer-content-copy">
+					<ul class="hours">
+						<li>We're Open</li>
+						<li>Monday-Saturday</li>
+						<li>12pm-9pm</li>
+					</ul>
+	
+					<p class="address">500 Terry Francois Street San Fransisco, CA 94158</p>
+	
+					<ul class="contact">
+						<li>Tel: 123-456-7890</li>
+						<li>Email: info@mysite.com</li>
+					</ul>
+				</div>
+			</section>
+	
+			<a href="#" class="copyright">2023 by 'o ia Poke</a>
+		</footer>
+	
 		<script src="dist/js/main.js"></script>
 	</body>
 </html>
