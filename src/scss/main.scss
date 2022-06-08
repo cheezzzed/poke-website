@@ -307,14 +307,24 @@ body {
 
 	.gallery{
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+		grid-auto-rows: auto;
 		background-color: variables.$white;
+		grid-gap: 20px;
+		padding: 25px;
+
+		@include mixins.bp-large{
+			grid-gap: 40px;
+			// max-width: 600px;
+			margin: 0 auto;
+			grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+		}
 
 		img{
 			width: 100%;
 
 			@include mixins.bp-large{
-				width: 100%;		
+				width: 100%;
 			}
 		}
 	}
