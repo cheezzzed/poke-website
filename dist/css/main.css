@@ -164,7 +164,7 @@ background: variables.$primary-color;
 
 body {
   font-family: "Noto Sans", sans-serif;
-  background-color: #FEBC32;
+  background-color: #fff;
   font-size: 1.5rem;
 }
 body .header {
@@ -441,12 +441,14 @@ body .gallery {
   background-color: #fff;
   grid-gap: 20px;
   padding: 25px;
+  max-width: 1200px;
 }
 @media screen and (min-width: 992px) {
   body .gallery {
+    -ms-grid-columns: 1fr 40px 1fr 40px 1fr 40px 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 40px;
-    margin: 0 auto;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    margin: 40px auto;
   }
 }
 body .gallery img {
